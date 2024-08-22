@@ -1,12 +1,9 @@
 package com.chatgpt.Exercicios.MaximoComumDivisor;
 
-import java.util.Scanner;
-
 import javax.swing.JOptionPane;
 
 public class MDC {
 	public static void main(String[] args) {
-		Scanner scan = new Scanner(System.in);
 		int contador = 0;
 
 		do {
