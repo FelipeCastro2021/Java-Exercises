@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class MMC {
 	protected static Scanner scan;
-	
-	public static void main(String[] args) {	
+
+	public static void main(String[] args) {
 		scan = new Scanner(System.in);
 		int contador = 0;
 
@@ -24,10 +24,8 @@ public class MMC {
 				int contador2 = 0;
 
 				do {
-					System.out.println("=================== ESCOLHA UMA DAS OPÇÕES ==================="
-							+ "\n1 - MDC"
-							+ "\n2 - MMC"
-							+ "\n0 - Sair");
+					System.out.println("=================== ESCOLHA UMA DAS OPÇÕES ===================" + "\n1 - MDC"
+							+ "\n2 - MMC" + "\n0 - Sair");
 					contador2 = scan.nextInt();
 
 					switch (contador2) {
@@ -56,18 +54,18 @@ public class MMC {
 				break;
 			}
 		} while (contador != 0);
-		
+
 		scan.close();
 	}
-	
+
 	public static int[] cadastrarArray(int contador) {
 		int[] array = new int[contador];
-		
+
 		for (int i = 0; i < array.length; i++) {
 			System.out.println("Insira um número: ");
 			array[i] = scan.nextInt();
 		}
-		
+
 		return array;
 	}
 
@@ -75,30 +73,34 @@ public class MMC {
 		if (array == null) {
 			throw new IllegalArgumentException("O array de números não pode estar vazio.");
 		}
-		
-		int total = 1;
-		
-		for (int i = 0; i < array.length; i++) {
-			total *= array[i];
+
+		int resultado = array[0];
+
+		for (int i = 1; i < array.length; i++) {
+			resultado = calcularMMC(resultado, array[i]);
 		}
-		
-		return total / calcularMDC(array);
+
+		return resultado;
+	}
+
+	public static int calcularMMC(int a, int b) {
+		return a * b / calcularMDC(new int[] { a, b });
 	}
 
 	public static int calcularMDC(int[] array) {
 		if (array == null) {
 			throw new IllegalArgumentException("O array de números não pode estar vazio.");
 		}
-		
+
 		int resultado = array[0];
-		
+
 		for (int i = 1; i < array.length; i++) {
 			resultado = mdc(resultado, array[i]);
 		}
-		
+
 		return resultado;
 	}
-	
+
 	public static int mdc(int numero1, int numero2) {
 		while (numero2 != 0) {
 			int resto = numero1 % numero2;
@@ -108,14 +110,14 @@ public class MMC {
 
 		return numero1;
 	}
-	
+
 	public static void imprimirResultado(int[] array, int resultado) {
 		System.out.print("Números cadastrados: ");
-		
+
 		for (int element : array) {
 			System.out.print(element + " ");
 		}
-		
+
 		System.out.println();
 		System.out.println("Resultado: " + resultado);
 	}
