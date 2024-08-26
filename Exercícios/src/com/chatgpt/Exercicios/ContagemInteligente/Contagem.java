@@ -30,5 +30,5 @@ public class Contagem {
 		for (int i = inicio; i >= fim; i--) {
 			System.out.println(" " + i + "..");
 		}
-	}
+	}	
 }
