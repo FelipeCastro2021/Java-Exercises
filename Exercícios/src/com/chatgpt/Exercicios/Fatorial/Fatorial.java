@@ -12,8 +12,17 @@ public class Fatorial {
 		
 		for (int i = 1; i <= numero; i++) {
 			total *= i;
+			
+			if (i == numero) {
+				System.out.print(i + " = ");
+				break;
+			}
+			
+			System.out.print(i + " * ");
 		}
 		
 		System.out.println(total);
+		
+		scan.close();
 	}
 }
