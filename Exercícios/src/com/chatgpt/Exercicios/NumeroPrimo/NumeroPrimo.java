@@ -11,6 +11,10 @@ public class NumeroPrimo {
 			if (numero % i == 0) {
 				contador++;
 			}
+			
+			if (contador > 2) {
+				break;
+			}
 		}	
 		
 		if (contador == 2) {
